@@ -1,0 +1,178 @@
+Found a 11 line (140 tokens) duplication in the following files: 
+Starting at line 27 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\graphics\Screen.java
+Starting at line 42 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\graphics\Screen.java
+
+	public void renderEntity(int xp, int yp, Entity entity) {
+		xp -= xOffset;
+		yp -= yOffset;
+		for (int y = 0; y < entity.getSprite().getSize(); y++) {
+			int ya = y + yp;
+			for (int x = 0; x < entity.getSprite().getSize(); x++) {
+				int xa = x + xp;
+				if(xa < -entity.getSprite().getSize() || xa >= _width || ya < 0 || ya >= _height) break; //fix black margins
+				if(xa < 0) xa = 0;
+				int color = entity.getSprite().getPixel(x + y * entity.getSprite().getSize());
+				if(color != 0xffff00ff) _pixels[xa + ya * _width] = color;
+=====================================================================
+Found a 4 line (76 tokens) duplication in the following files: 
+Starting at line 111 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\entities\mob\Player.java
+Starting at line 48 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\entities\mob\Mob.java
+
+		double xx = (_x * Game.SCALE) + (16 * Game.SCALE);
+		double yy = (_y* Game.SCALE) - (16 * Game.SCALE);
+		Message msg = new Message("+1 DEAD",_board.getWidth() / 2  * 3 * 16 - 7*16 , 18, 1, Color.YELLOW, 20);
+		_board.addMessage(msg);
+=====================================================================
+Found a 3 line (47 tokens) duplication in the following files: 
+Starting at line 158 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+Starting at line 162 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+
+			_mobs.add( new Player(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, this));
+			_entities[x + y * _level.getWidth()] = new GrassTile(x, y, Sprite.grass);
+			break;
+=====================================================================
+Found a 6 line (36 tokens) duplication in the following files: 
+Starting at line 201 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+Starting at line 250 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+
+	public Bomb getBombAt(double x, double y) {
+		Iterator<Bomb> bs = _bombs.iterator();
+		Bomb b;
+		while(bs.hasNext()) {
+			b = bs.next();
+			if(b.getX() == (int)x && b.getY() == (int)y)
+=====================================================================
+Found a 7 line (35 tokens) duplication in the following files: 
+Starting at line 65 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\entities\mob\Player.java
+Starting at line 201 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+Starting at line 250 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+
+	private void clearBombs() {
+		Iterator<Bomb> bs = _bombs.iterator();
+		
+		Bomb b;
+		while(bs.hasNext()) {
+			b = bs.next();
+			if(b.isRemoved()) bs.remove();
+=====================================================================
+Found a 2 line (34 tokens) duplication in the following files: 
+Starting at line 148 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+Starting at line 151 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+
+		case '*': 
+			_entities[x + y * _level.getWidth()] =  new LayeredEntity(x, y, new GrassTile(x ,y, Sprite.grass), new BrickTile(x ,y, Sprite.brick));
+=====================================================================
+Found a 8 line (34 tokens) duplication in the following files: 
+Starting at line 213 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+Starting at line 227 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+
+	public Mob getMobAt(double x, double y) {
+		Iterator<Mob> itr = _mobs.iterator();
+		
+		Mob cur;
+		while(itr.hasNext()) {
+			cur = itr.next();
+			
+			if(cur.getXTile() == x && cur.getYTile() == y)
+=====================================================================
+Found a 6 line (31 tokens) duplication in the following files: 
+Starting at line 99 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\entities\bomb\DirectionalExplosion.java
+Starting at line 62 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\entities\bomb\Bomb.java
+
+	public void render(Screen screen) {
+		
+		for (int i = 0; i < _explosions.length; i++) {
+			_explosions[i].render(screen);
+		}
+	}
+=====================================================================
+Found a 5 line (29 tokens) duplication in the following files: 
+Starting at line 55 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\entities\bomb\Explosion.java
+Starting at line 56 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\entities\bomb\Bomb.java
+
+		int xt = (int)_x << 4;
+		int yt = (int)_y << 4;
+		
+		screen.renderEntity(xt, yt , this);
+	}
+=====================================================================
+Found a 6 line (28 tokens) duplication in the following files: 
+Starting at line 13 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\entities\tile\DestroyableTile.java
+Starting at line 10 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\entities\tile\BrickTile.java
+
+	public DestroyableTile(int x, int y, Sprite sprite) {
+		super(x, y, sprite);
+	}
+	
+	@Override
+	public void update() {
+=====================================================================
+Found a 8 line (27 tokens) duplication in the following files: 
+Starting at line 57 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Game.java
+Starting at line 88 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Game.java
+
+	private void render() { //render will run the maximum times it can per second
+		BufferStrategy bs = getBufferStrategy(); //create a buffer to store images using canvas
+		if(bs == null) { //if canvas dont have a bufferstrategy, create it
+			createBufferStrategy(3); //triple buffer
+			return;
+		}
+		
+		screen.clear();
+=====================================================================
+Found a 3 line (26 tokens) duplication in the following files: 
+Starting at line 154 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+Starting at line 165 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+
+		case ' ': 
+			_entities[x + y * _level.getWidth()] = new GrassTile(x, y, Sprite.grass);
+			break;
+=====================================================================
+Found a 3 line (26 tokens) duplication in the following files: 
+Starting at line 155 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+Starting at line 159 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+
+			_entities[x + y * _level.getWidth()] = new GrassTile(x, y, Sprite.grass);
+			break;
+		case 'p': 
+=====================================================================
+Found a 6 line (25 tokens) duplication in the following files: 
+Starting at line 125 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\entities\mob\Player.java
+Starting at line 143 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\entities\mob\Player.java
+
+		case 1:
+			_sprite = Sprite.player_right;
+			if(_moving) {
+				_sprite = movingSprite(Sprite.player_right_1, Sprite.player_right_2);
+			}
+			break;
+=====================================================================
+Found a 2 line (25 tokens) duplication in the following files: 
+Starting at line 155 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+Starting at line 163 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+
+			_entities[x + y * _level.getWidth()] = new GrassTile(x, y, Sprite.grass);
+			break;
+=====================================================================
+Found a 2 line (25 tokens) duplication in the following files: 
+Starting at line 159 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+Starting at line 166 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+
+			_entities[x + y * _level.getWidth()] = new GrassTile(x, y, Sprite.grass);
+			break;
+=====================================================================
+Found a 4 line (25 tokens) duplication in the following files: 
+Starting at line 314 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+Starting at line 353 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+
+		Iterator<Bomb> itr = _bombs.iterator();
+		
+		while(itr.hasNext())
+			itr.next().render(screen);
+=====================================================================
+Found a 2 line (25 tokens) duplication in the following files: 
+Starting at line 322 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+Starting at line 363 of C:\ecpliseGit\Bomberman\Bomberman_NEW\src\com\carlosflorencio\bomberman\Board.java
+
+		for (int i = 0; i < _messages.size(); i++) {
+			m = _messages.get(i);

@@ -99,6 +99,9 @@ public class Board implements IRender {
 		resetProperties();
 		changeLevel(1);
 	}
+	public void getMobs() {
+		
+	}
 	
 	@SuppressWarnings("static-access")
 	private void resetProperties() {

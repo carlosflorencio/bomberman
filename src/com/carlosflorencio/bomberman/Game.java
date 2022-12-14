@@ -6,7 +6,8 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 
-
+import com.carlosflorencio.bomberman.entities.mob.Mob;
+import com.carlosflorencio.bomberman.entities.mob.enemy.Enemy;
 import com.carlosflorencio.bomberman.exceptions.BombermanException;
 import com.carlosflorencio.bomberman.graphics.Screen;
 import com.carlosflorencio.bomberman.gui.Frame;
@@ -195,6 +196,15 @@ public class Game extends Canvas {
 	
 	public static void addBombRate(int i) {
 		bombRate += i;
+	}
+	public static void freezeMobs(Board _board) {
+		/* bombRate += i; */
+		/* fore_board._mobs */
+		for (Mob mob : _board._mobs) {
+			if (mob instanceof Enemy) {
+				((Enemy)mob).freeze();
+			}
+		}
 	}
 	
 	//screen delay

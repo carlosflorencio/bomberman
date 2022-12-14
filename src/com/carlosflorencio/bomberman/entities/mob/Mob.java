@@ -11,6 +11,7 @@ public abstract class Mob extends AnimatedEntitiy {
 	protected int _direction = -1;
 	protected boolean _alive = true;
 	protected boolean _moving = false;
+	protected boolean _canmove = true;
 	public int _timeAfter = 80;
 	
 	public Mob(int x, int y, Board board) {

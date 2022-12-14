@@ -23,6 +23,7 @@ import com.carlosflorencio.bomberman.entities.tile.WallTile;
 import com.carlosflorencio.bomberman.entities.tile.destroyable.BrickTile;
 import com.carlosflorencio.bomberman.entities.tile.powerup.PowerupBombs;
 import com.carlosflorencio.bomberman.entities.tile.powerup.PowerupFlames;
+import com.carlosflorencio.bomberman.entities.tile.powerup.PowerupFreeze;
 import com.carlosflorencio.bomberman.entities.tile.powerup.PowerupSpeed;
 import com.carlosflorencio.bomberman.exceptions.LoadLevelException;
 import com.carlosflorencio.bomberman.graphics.Screen;
@@ -106,6 +107,18 @@ public class FileLevel extends Level {
 				
 				if(_board.isPowerupUsed(x, y, _level) == false) {
 					layer.addBeforeTop(new PowerupFlames(x, y, _level, Sprite.powerup_flames));
+				}
+				
+				_board.addEntitie(pos, layer);
+				break;
+			case 'c': 
+				layer = new LayeredEntity(x, y, 
+						new GrassTile(x ,y, Sprite.grass), 
+						new BrickTile(x ,y, Sprite.brick));
+				
+				if(_board.isPowerupUsed(x, y, _level) == false) {
+					
+					layer.addBeforeTop(new PowerupFreeze(x, y, _level, _board, Sprite.powerup_freeze));
 				}
 				
 				_board.addEntitie(pos, layer);
